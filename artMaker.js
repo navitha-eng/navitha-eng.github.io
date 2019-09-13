@@ -2,7 +2,21 @@ window.onload = function(){
     let containertop = document.createElement('div');
     let gcolor;
 
-    let colors = ['red','green','blue','white','black','yellow','purple','voilet','ornage','indigo']
+    let colors = ['red','green','blue','white','black','yellow','purple','voilet','ornage','indigo'];
+
+    let mouseDown;
+    let mouseUp;
+
+    window.addEventListener('mousedown', function(event){
+        mouseDown = true;
+        mouseUp = false;
+      });
+
+    window.addEventListener('mouseup', function(event){
+        mouseDown = false;
+        mouseUp = true;
+      });
+
   // Set the hieght, width, and background color of our container
   // center it horizontally with margin = auto
   // and use grid layout to make the boxes nice. 
@@ -44,6 +58,11 @@ window.onload = function(){
     box.addEventListener('click', function(event){
       box.style.backgroundColor = gcolor;
     });
+    box.addEventListener('mouseover', function(event){
+        if(mouseDown){
+        box.style.backgroundColor = gcolor;
+        }
+      });
     container.appendChild(box);
   }
 
